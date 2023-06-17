@@ -229,7 +229,6 @@ body {
     margin:0 auto;
     height:auto;
     text-align: center;
-    display: none;
     background: linear-gradient(to right, rgb(185, 100, 255), rgb(103, 74, 255), rgb(12, 204, 238));
     font-family: 'Poppins', sans-serif;
     line-height: 1.5;
@@ -410,14 +409,22 @@ body {
     margin: 0 auto;
     width: auto;
     height: 100px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     border-bottom: 1px solid #333;
     padding: 5px;
-
+    margin: 5px;
+}
+.minCard button{
+    background-color: darkgoldenrod;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
 }
 
 .last-games .minCard img {
-    width: 150px;
+    width: 100px;
     height: 60px;
     overflow: hidden;
     position: relative;

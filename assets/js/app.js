@@ -1,31 +1,27 @@
 const apiKey = '27bce82387e946e39fb3dc430f8c590d';
 const baseUrl = 'https://api.rawg.io/api';
 const juegosAMostrar = 40;
-let carrito = [];   //No me actualizaba el carrito hasta que le daba f5  
 
-// trae los juegosguardados en el localStorage
+let carrito = [];
+
 function obtenerJuegosLocalStorage() {
   const juegosLocalStorage = localStorage.getItem('juegos');
   return juegosLocalStorage ? JSON.parse(juegosLocalStorage) : [];
 }
 
-// Guarda  los juegos en el localStorage
 function almacenarJuegosLocalStorage(juegos) {
   localStorage.setItem('juegos', JSON.stringify(juegos));
 }
 
-// trae los items de carrito guardados  en el localStorage
 function obtenerCarritoLocalStorage() {
   const carritoLocalStorage = localStorage.getItem('carrito');
   return carritoLocalStorage ? JSON.parse(carritoLocalStorage) : [];
 }
 
-//Guarda el contenido del carrito de compras en el localStorage
 function almacenarCarritoLocalStorage(carrito) {
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-//renderiza las cards de juegos en la sección de ofertas
 function renderizarCards(juegos, cantidadMostrada) {
   const cardsContainer = document.querySelector('.cards-container');
 
@@ -62,7 +58,6 @@ function renderizarCards(juegos, cantidadMostrada) {
   });
 }
 
-// mostrar más ofertas  "Ver más"
 const botonVerMas = document.querySelector('#ver-mas');
 const botonLimpiarResultado = document.querySelector('#ver-menos');
 let cantidadMostrada = 5;
@@ -72,7 +67,6 @@ botonVerMas.addEventListener('click', () => {
   mostrarCards();
 });
 
-// Muestra las cards en la sección de ofertas 
 function mostrarCards() {
   const juegos = obtenerJuegosLocalStorage();
   const cardsContainer = document.querySelector('.cards-container');
@@ -91,25 +85,21 @@ botonLimpiarResultado.addEventListener('click', () => {
   mostrarCards();
 });
 
-// Función para agregar un juego al carrito de compras
 function agregarAlCarrito(juego) {
   const juegoExistente = carrito.find(item => item.id === juego.id);
 
   if (juegoExistente) {
-    // Si el juego ya existe en el carrito   (+) aumentamos la cantidad
     juegoExistente.cantidad += 1;
   } else {
-    // Si el juego no existe en el carrito, lo agregamos con una cantidad inicial de 1
     carrito.push({ ...juego, cantidad: 1 });
   }
 
   renderizarCarrito();
-  mostrarModal('Tu juego se agrego correctamente');
+  mostrarModal('Tu juego se agregó correctamente');
 
-  console.log('Eaaaaaa! Juego agregado al carrito!:', juego.name);
+  console.log('¡Juego agregado al carrito!', juego.name);
 }
 
-// renderizar  carrito de compras
 function renderizarCarrito() {
   const cartContainer = document.querySelector('#cart-container');
   cartContainer.innerHTML = '';
@@ -131,7 +121,7 @@ function renderizarCarrito() {
 
     const titulo = document.createElement('h4');
     titulo.textContent = juego.name;
-    
+
     const cantidadContainer = document.createElement('div');
     cantidadContainer.classList.add('cantidad-container');
 
@@ -171,7 +161,6 @@ function renderizarCarrito() {
   almacenarCarritoLocalStorage(carrito);
 }
 
-// Función para restar item
 function disminuirCantidad(juego) {
   const juegoExistente = carrito.find(item => item.id === juego.id);
 
@@ -185,7 +174,6 @@ function disminuirCantidad(juego) {
   }
 }
 
-// Función para sumar nuevo item
 function aumentarCantidad(juego) {
   const juegoExistente = carrito.find(item => item.id === juego.id);
 
@@ -195,7 +183,6 @@ function aumentarCantidad(juego) {
   }
 }
 
-// Función para eliminar un juego del carrito!
 function eliminarJuegoCarrito(juego) {
   const index = carrito.findIndex(item => item.id === juego.id);
 
@@ -205,25 +192,17 @@ function eliminarJuegoCarrito(juego) {
   }
 }
 
-//modal de confirmación(Todavia no me funciona...)
 function mostrarModal(mensaje) {
   const modal = document.createElement('div');
   modal.classList.add('modal');
   modal.textContent = mensaje;
   document.body.appendChild(modal);
 
-
   setTimeout(() => {
     modal.remove();
   }, 3000);
 }
 
-//mostrar más ofertas
-mostrarCards();
-
-//renderizar el carrito de compras
-renderizarCarrito();
-// juegos aleatoreos
 function obtenerJuegosAleatorios(juegos, cantidad) {
   const juegosAleatorios = [];
   const indicesUtilizados = [];
@@ -240,7 +219,6 @@ function obtenerJuegosAleatorios(juegos, cantidad) {
   return juegosAleatorios;
 }
 
-// Renderiza los juegos aleatorios en la sección last-games
 function renderizarJuegosAleatorios(juegos) {
   const lastGamesContainer = document.querySelector('.last-games');
   lastGamesContainer.innerHTML = '';
@@ -261,16 +239,43 @@ function renderizarJuegosAleatorios(juegos) {
     const año = document.createElement('p');
     año.textContent = `Año: ${juego.released}`;
 
+    const precio = document.createElement('p');
+    precio.textContent = `Precio: $ 299.99`;
+
+    const botonCarrito = document.createElement('button');
+    botonCarrito.textContent = '+';
+    botonCarrito.addEventListener('click', () => {
+      agregarAlCarrito(juego);
+    });
+
     minCard.appendChild(imagen);
     minCard.appendChild(titulo);
     minCard.appendChild(año);
+    minCard.appendChild(precio);
+    minCard.appendChild(botonCarrito);
 
     lastGamesContainer.appendChild(minCard);
   });
 }
 
-// Juegos guardados en el localStorage
-const juegosLocalStorage = obtenerJuegosLocalStorage();
+function cargarJuegos() {
+  fetch(`${baseUrl}/games?key=${apiKey}&page_size=${juegosAMostrar}`)
+    .then(response => response.json())
+    .then(data => {
+      const juegos = data.results;
+      almacenarJuegosLocalStorage(juegos);
+      mostrarCards();
+      renderizarJuegosAleatorios(juegos);
+    })
+    .catch(error => {
+      console.log('Error al cargar los juegos:', error);
+    });
+}
 
-//Funcion Juegos ramdom en last-games
-renderizarJuegosAleatorios(juegosLocalStorage);
+function inicializar() {
+  carrito = obtenerCarritoLocalStorage();
+  cargarJuegos();
+  renderizarCarrito();
+}
+
+inicializar();
