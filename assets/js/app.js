@@ -1,7 +1,7 @@
 const apiKey = '27bce82387e946e39fb3dc430f8c590d';
 const baseUrl = 'https://api.rawg.io/api';
 const juegosAMostrar = 40;
-let carrito = [];   //No me actualizaba el carrito hast que le daba f5  
+let carrito = [];   //No me actualizaba el carrito hasta que le daba f5  
 
 // trae los juegosguardados en el localStorage
 function obtenerJuegosLocalStorage() {
@@ -59,32 +59,6 @@ function renderizarCards(juegos, cantidadMostrada) {
     card.appendChild(botonCarrito);
 
     cardsContainer.appendChild(card);
-  });
-}
-
-// renderizar  lista de 10 juegos " más actuales"
-function renderizarUltimosJuegos(juegos) {
-  const lastGamesContainer = document.querySelector('.last-games');
-
-  juegos.slice(0, 10).forEach(juego => {
-    const minCard = document.createElement('div');
-    minCard.classList.add('minCard');
-
-    const imagen = document.createElement('img');
-    imagen.src = juego.background_image;
-    imagen.alt = juego.name;
-
-    const titulo = document.createElement('h3');
-    titulo.textContent = juego.name;
-
-    const año = document.createElement('p');
-    año.textContent = `Año: ${juego.released}`;
-
-    minCard.appendChild(imagen);
-    minCard.appendChild(titulo);
-    minCard.appendChild(año);
-
-    lastGamesContainer.appendChild(minCard);
   });
 }
 
