@@ -30,10 +30,6 @@ const txtAboutUs = document.createElement('p')
 txtAboutUs.textContent = "¡Bienvenidos a StarGames, el paraíso de los juegos digitales! Sumérgete en emocionantes aventuras y compite en frenéticas batallas. Descubre los títulos más populares y clásicos. Disfruta de una experiencia de compra excepcional y un soporte al cliente excepcional. ¡Prepárate para horas interminables de diversión y entretenimiento en StarGames, donde los mejores juegos digitales te esperan! ¡Únete a nosotros y descubre el paraíso de los juegos digitales!"
 aboutUsContet.appendChild(txtAboutUs).className ='abutUs-txt';
 
-
-
-
-
 /* Slider */
 const slider = document.querySelector(".slider");
 const slides = slider.querySelector(".slides");

@@ -1,4 +1,3 @@
-
 const apiKey = '27bce82387e946e39fb3dc430f8c590d';
 const baseUrl = 'https://api.rawg.io/api';
 const juegosAMostrar = 40;
