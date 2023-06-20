@@ -889,6 +889,9 @@ footer .box2 .logo {
         display: flex;
         justify-content: space-around;
     }
+    .search{
+        display: none;
+    }
     .slider{
         display: none;
     }
@@ -929,6 +932,13 @@ footer .box2 .logo {
 }
 
 @media (max-width:320px){
-    *{margin:0 auto}
+    *{  margin:0 auto;
+        font-size: small;
+
+    }    
+    .news a{
+        display: flex;
+        justify-content: space-around;
+    }
 
 }
