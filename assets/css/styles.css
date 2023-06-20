@@ -883,6 +883,7 @@ footer .box2 .logo {
 @media (max-width:576px) {
     * {
         margin: 0 auto;
+        font-size: medium;
     }
     .slider{
         display: none;
@@ -911,6 +912,7 @@ footer .box2 .logo {
         width: 100%;
         height: auto;
         font-size: medium;
+        margin-bottom: 20px;
     }
     footer {
         display: block;
