@@ -6,18 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/1ed3578477.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/css/logregstyles.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
     <title>Integrador JS</title>
 </head>
 
 <body>
-    <!-- <header>
-        <div id="header-container" class="sticky">
-            <div class="logo"><i class="fa-solid fa-star"></i>
-                <h1>Star</h1><span>Games</span>
-            </div>
-
-    </header> -->
     <header>
         <div id="header-container" class="sticky">
             <div class="logo"><i class="fa-solid fa-star"></i>
@@ -44,35 +38,40 @@
     </header>
     <main>
         <section class="search-container">
-            <!-- <div class="search">
-                <div class="search-label">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Buscar en la tienda">
-                </div>
-            </div> -->
             <div class="news">
                 <a href="/index.html">Home</a>
                 <a href="/index.html/#contact-form">Contacto</a>
-                <a href="/assets/pages/login.html">LogIn</a>
+                <a href="/assets/pages/registro.html">Registrarse</a>
             </div>
 
         </section>
         <div class="form-container">
-        <div id="form-container">
-            <h2>Dejanos tu mensaje</h2>
-            <form id="contact-form">
-              <input type="email" id="email-input" placeholder="Ingresa tu correo" required>
-              
-              <input type="text" id="name-input" placeholder="Ingresa tu nombre completo" required>
-              
-              <input type="tel" id="phone-input"  placeholder="11-111-1111" required>
-              
-              <textarea id="message-input" placeholder="Deja tu mensaje" required></textarea>
-              
-              <button id="submit-button">Enviar</button>
-            </form>
-          </div>
-        </div>
+            <div id="form-container">
+                <div class="center-container">
+                    <form class="formulario">
+                        <h1>Registrate</h1>
+                        <div class="form__container">
+                            <div class="input-container">
+                                <i class="fas fa-user icon"></i>
+                                <input type="text" placeholder="Nombre completo">
+                            </div>
+                            <div class="input-container">
+                                <i class="fas fa-envelope icon"></i>
+                                <input type="text" placeholder="Correo electronico">
+                            </div>
+                            <div class="input-container">
+                                <i class="fas fa-key icon"></i>
+                                <input type="password" placeholder="Contraseña">
+                            </div>
+                            <a href="/index.html"><input type="submit" value="Enviar" class="btn-frm"></a>
+                            <p>Al registrate, aceptas nuestras condiciones de uso y políticas de privacidad. </p>
+                            <p>Ya tienes cuenta?<a href="/assets/pages/login.html"> Iniciar Sesion.</a></p>
+                        </div>
+                        <div>
+                            <i class="fas fa-fleccha"></i>
+                        </div>
+                    </form>
+                </div>
     </main>
     <footer>
         <div class="footer-container">
@@ -119,8 +118,8 @@
         </div>
     </footer>
     <script src="/assets/js/app.js"></script>
-    <script src="/assets/js/index.js"></script>
-    <div class="modal"></div>
+<!--     <script src="/assets/js/index.js"></script>
+    <div class="modal"></div> -->
 </body>
 
 </html>
