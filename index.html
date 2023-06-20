@@ -32,15 +32,14 @@
                         <a href="#aboutUs-container">Nosotros</a>
                         <a href="#">Contacto</a>
                         <a href="#"><i class="fa-solid fa-user"></i> Mi Cuenta</a>
-                        <a href="#cart-container"><i class="fa-solid fa-cart-shopping fa-2xl"></i>Carrito</a>
-                        <div id="cart-container">
-
-                        </div>
+                        <a href="#"><i class="fa-solid fa-cart-shopping fa-2xl"></i>Carrito</a>
                     </div>
+                    <div id="cart-container"></div>
                 </div>
             </nav>
             <button id="button-menu" class="button-menu">
                 <i class="fa-solid fa-bars"></i>Menú</button>
+        </div>
         </div>
     </header>
     <main>
@@ -52,9 +51,9 @@
                 </div>
             </div>
             <div class="news">
-                <a href="">Descubrir</a>
+                <a href="#beneficios">Descubrir</a>
                 <a href="#ofertas">Explorar</a>
-                <a href="">Noticias</a>
+                <a href="#aboutUs-container">Nosotros</a>
             </div>
 
         </section>
@@ -73,7 +72,6 @@
                 </div>
             </div>
             <div class="last-games">
-                <h2>Ultimas compras</h2>
             </div>
 
         </div>
@@ -82,10 +80,6 @@
             <h2>Juegos en Oferta</h2>
             <div class="cards-container">
 
-            </div>
-            <div class="crtls-cards">
-                <button id="ver-mas">Ver más</button>
-                <button id="ver-menos">Ver menos</button>
             </div>
         </article>
         <section id="beneficios">
@@ -135,17 +129,29 @@
             </div>
         </section>
         <article id="aboutUs-container">
-            <!-- <div class="shadowbg"></div> -->
             <div class="logo">
                 <i class="fa-solid fa-star"></i>
                 <h1>Star</h1><span>Games</span>
             </div>
-            <div id="aboutUs-txt">
-            </div>
+            <div id="aboutUs-txt"></div>
         </article>
+        <div class="form-container">
+        <div id="form-container">
+            <h2>Dejanos tu mensaje</h2>
+            <form id="contact-form">
+              <input type="email" id="email-input" placeholder="Ingresa tu correo" required>
+              
+              <input type="text" id="name-input" placeholder="Ingresa tu nombre completo" required>
+              
+              <input type="tel" id="phone-input"  placeholder="11-111-1111" required>
+              
+              <textarea id="message-input" placeholder="Deja tu mensaje" required></textarea>
+              
+              <button id="submit-button">Enviar</button>
+            </form>
+          </div>
+        </div>
     </main>
-    <!--     <a href="#" id="scrollarrow"></a>
- -->
     <footer>
         <div class="footer-container">
             <div class="box1">
@@ -155,12 +161,21 @@
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
                 </div>
                 <div class="box1-text">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam id autem, pariatur iusto
-                        molestiae veniam magnam nesciunt quas tempore adipisci!</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam id autem, pariatur iusto
-                        molestiae veniam magnam nesciunt quas tempore adipisci!</p>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam id autem, pariatur iusto
-                        molestiae veniam magnam nesciunt quas tempore adipisci!</p>
+                    <ul>
+                        <li> Recursos</li>
+                        <li> Apoyad a un creador</li>
+                        <li> Distribuir en Star Games</li>
+                        <li> Empleo</li>
+                        <li> Compañía</li>
+                    </ul>
+                    <ul>
+                        <li> Política de arte de aficionados</li>
+                        <li> Estudio de experiencias de usuarios</li>
+                        <li> CLUF de la tienda</li>
+                        <li> Servicios en línea</li>
+                        <li> Reglas de la comunidad</li>
+                        <li> StarGames Newsroom</li>
+                    </ul>
                 </div>
             </div>
             <div class="box2">

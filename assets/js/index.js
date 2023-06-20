@@ -26,9 +26,9 @@ toggleButton.addEventListener('click', () => {
 //------------------------FIN MENU--♪♪♫♫
 
 const aboutUsContet = document.querySelector('#aboutUs-txt');
-const txtAboutUs = document.createElement('p')
+const txtAboutUs = document.createElement('p');
 txtAboutUs.textContent = "¡Bienvenidos a StarGames, el paraíso de los juegos digitales! Sumérgete en emocionantes aventuras y compite en frenéticas batallas. Descubre los títulos más populares y clásicos. Disfruta de una experiencia de compra excepcional y un soporte al cliente excepcional. ¡Prepárate para horas interminables de diversión y entretenimiento en StarGames, donde los mejores juegos digitales te esperan! ¡Únete a nosotros y descubre el paraíso de los juegos digitales!"
-aboutUsContet.appendChild(txtAboutUs).className ='abutUs-txt';
+aboutUsContet.appendChild(txtAboutUs).className ='aboutUs-txt';
 
 /* Slider */
 const slider = document.querySelector(".slider");
@@ -70,3 +70,21 @@ slider.addEventListener('mouseover', function () {
 })
 
 /*  */
+/* formulario de contacto */
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault(); 
+
+  var email = document.getElementById('email-input').value;
+  var name = document.getElementById('name-input').value;
+  var phone = document.getElementById('phone-input').value;
+  var message = document.getElementById('message-input').value;
+
+  
+  document.getElementById('email-input').value = '';
+  document.getElementById('name-input').value = '';
+  document.getElementById('phone-input').value = '';
+  document.getElementById('message-input').value = '';
+
+  
+  alert('¡Formulario enviado con éxito!');
+});

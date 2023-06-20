@@ -1,89 +1,18 @@
 const apiKey = '27bce82387e946e39fb3dc430f8c590d';
 const baseUrl = 'https://api.rawg.io/api';
-const juegosAMostrar = 40;
+const juegosAMostrar = 4;
+const cantidadMostrada = 5;
 
 let carrito = [];
 
-function obtenerJuegosLocalStorage() {
-  const juegosLocalStorage = localStorage.getItem('juegos');
-  return juegosLocalStorage ? JSON.parse(juegosLocalStorage) : [];
-}
-
-function almacenarJuegosLocalStorage(juegos) {
-  localStorage.setItem('juegos', JSON.stringify(juegos));
-}
-
-function obtenerCarritoLocalStorage() {
-  const carritoLocalStorage = localStorage.getItem('carrito');
-  return carritoLocalStorage ? JSON.parse(carritoLocalStorage) : [];
-}
-
-function almacenarCarritoLocalStorage(carrito) {
+function almacenarCarritoLocalStorage() {
   localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
-function renderizarCards(juegos, cantidadMostrada) {
-  const cardsContainer = document.querySelector('.cards-container');
-
-  juegos.slice(0, cantidadMostrada).forEach(juego => {
-    const card = document.createElement('div');
-    card.classList.add('cardOfer');
-
-    const imagen = document.createElement('img');
-    imagen.src = juego.background_image;
-    imagen.alt = juego.name;
-
-    const titulo = document.createElement('h3');
-    titulo.textContent = juego.name;
-
-    const año = document.createElement('p');
-    año.textContent = `Año: ${juego.released}`;
-
-    const precio = document.createElement('p');
-    precio.textContent = `Precio: $ 299.99`;
-
-    const botonCarrito = document.createElement('button');
-    botonCarrito.textContent = 'Añadir al carrito';
-    botonCarrito.addEventListener('click', () => {
-      agregarAlCarrito(juego);
-    });
-
-    card.appendChild(imagen);
-    card.appendChild(titulo);
-    card.appendChild(año);
-    card.appendChild(precio);
-    card.appendChild(botonCarrito);
-
-    cardsContainer.appendChild(card);
-  });
+function obtenerCarritoLocalStorage() {
+  const carritoString = localStorage.getItem('carrito');
+  return JSON.parse(carritoString) || [];
 }
-
-const botonVerMas = document.querySelector('#ver-mas');
-const botonLimpiarResultado = document.querySelector('#ver-menos');
-let cantidadMostrada = 5;
-
-botonVerMas.addEventListener('click', () => {
-  cantidadMostrada += 5;
-  mostrarCards();
-});
-
-function mostrarCards() {
-  const juegos = obtenerJuegosLocalStorage();
-  const cardsContainer = document.querySelector('.cards-container');
-
-  cardsContainer.innerHTML = '';
-  renderizarCards(juegos, cantidadMostrada);
-
-  if (cantidadMostrada >= juegos.length) {
-    botonVerMas.style.display = 'none';
-    botonLimpiarResultado.style.display = 'flex';
-  }
-}
-
-botonLimpiarResultado.addEventListener('click', () => {
-  cantidadMostrada = 5;
-  mostrarCards();
-});
 
 function agregarAlCarrito(juego) {
   const juegoExistente = carrito.find(item => item.id === juego.id);
@@ -91,25 +20,17 @@ function agregarAlCarrito(juego) {
   if (juegoExistente) {
     juegoExistente.cantidad += 1;
   } else {
-    carrito.push({ ...juego, cantidad: 1 });
+    juego.cantidad = 1;
+    carrito.push(juego);
   }
 
+  mostrarModal(`${juego.name} se añadió al carrito`);
   renderizarCarrito();
-  mostrarModal('Tu juego se agregó correctamente');
-
-  console.log('¡Juego agregado al carrito!', juego.name);
 }
 
 function renderizarCarrito() {
   const cartContainer = document.querySelector('#cart-container');
   cartContainer.innerHTML = '';
-
-  if (carrito.length === 0) {
-    const emptyMessage = document.createElement('p');
-    emptyMessage.textContent = 'El carrito está vacío.';
-    cartContainer.appendChild(emptyMessage);
-    return;
-  }
 
   carrito.forEach(juego => {
     const cartItem = document.createElement('div');
@@ -158,7 +79,7 @@ function renderizarCarrito() {
     cartContainer.appendChild(cartItem);
   });
 
-  almacenarCarritoLocalStorage(carrito);
+  almacenarCarritoLocalStorage();
 }
 
 function disminuirCantidad(juego) {
@@ -200,32 +121,28 @@ function mostrarModal(mensaje) {
 
   setTimeout(() => {
     modal.remove();
-  }, 3000);
+  }, 2000);
 }
 
-function obtenerJuegosAleatorios(juegos, cantidad) {
-  const juegosAleatorios = [];
-  const indicesUtilizados = [];
+async function obtenerJuegosLocalStorage() {
+  const juegosString = localStorage.getItem('juegos');
 
-  while (juegosAleatorios.length < cantidad) {
-    const indiceAleatorio = Math.floor(Math.random() * juegos.length);
-
-    if (!indicesUtilizados.includes(indiceAleatorio)) {
-      juegosAleatorios.push(juegos[indiceAleatorio]);
-      indicesUtilizados.push(indiceAleatorio);
-    }
+  if (juegosString) {
+    return JSON.parse(juegosString);
   }
 
-  return juegosAleatorios;
+  return [];
 }
 
-function renderizarJuegosAleatorios(juegos) {
+function almacenarJuegosLocalStorage(juegos) {
+  localStorage.setItem('juegos', JSON.stringify(juegos));
+}
+
+async function renderizarJuegosAleatorios(juegos) {
   const lastGamesContainer = document.querySelector('.last-games');
   lastGamesContainer.innerHTML = '';
 
-  const juegosAleatorios = obtenerJuegosAleatorios(juegos, 10);
-
-  juegosAleatorios.forEach(juego => {
+  juegos.forEach(juego => {
     const minCard = document.createElement('div');
     minCard.classList.add('minCard');
 
@@ -233,17 +150,20 @@ function renderizarJuegosAleatorios(juegos) {
     imagen.src = juego.background_image;
     imagen.alt = juego.name;
 
-    const titulo = document.createElement('h3');
+    const titulo = document.createElement('h4');
     titulo.textContent = juego.name;
 
     const año = document.createElement('p');
-    año.textContent = `Año: ${juego.released}`;
+    año.textContent = `Año de lanzamiento: ${juego.released}`;
+
+    const genero = document.createElement('p');
+    genero.textContent = `Género: ${juego.genres.map(g => g.name).join(', ')}`;
 
     const precio = document.createElement('p');
-    precio.textContent = `Precio: $ 299.99`;
+    precio.textContent = `Precio: $299.99`;
 
     const botonCarrito = document.createElement('button');
-    botonCarrito.textContent = '+';
+    botonCarrito.textContent = 'Añadir al carrito';
     botonCarrito.addEventListener('click', () => {
       agregarAlCarrito(juego);
     });
@@ -251,6 +171,7 @@ function renderizarJuegosAleatorios(juegos) {
     minCard.appendChild(imagen);
     minCard.appendChild(titulo);
     minCard.appendChild(año);
+    minCard.appendChild(genero);
     minCard.appendChild(precio);
     minCard.appendChild(botonCarrito);
 
@@ -258,24 +179,168 @@ function renderizarJuegosAleatorios(juegos) {
   });
 }
 
-function cargarJuegos() {
-  fetch(`${baseUrl}/games?key=${apiKey}&page_size=${juegosAMostrar}`)
-    .then(response => response.json())
-    .then(data => {
-      const juegos = data.results;
-      almacenarJuegosLocalStorage(juegos);
-      mostrarCards();
-      renderizarJuegosAleatorios(juegos);
-    })
-    .catch(error => {
-      console.log('Error al cargar los juegos:', error);
+async function obtenerJuegosAleatorios() {
+  const url = `${baseUrl}/games?key=${apiKey}&page_size=${juegosAMostrar}`;
+  const respuesta = await fetch(url);
+  const data = await respuesta.json();
+
+  return data.results;
+}
+
+async function obtenerJuegosPopulares() {
+  const url = `${baseUrl}/games?key=${apiKey}&ordering=-rating&page_size=${cantidadMostrada}`;
+  const respuesta = await fetch(url);
+  const data = await respuesta.json();
+
+  return data.results;
+}
+
+async function renderizarCards(juegos) {
+  const ofertasContainer = document.querySelector('.cards-container');
+  ofertasContainer.innerHTML = '';
+
+  juegos.forEach(juego => {
+    const cardOfer = document.createElement('div');
+    cardOfer.classList.add('cardOfer');
+
+    const imagen = document.createElement('img');
+    imagen.src = juego.background_image;
+    imagen.alt = juego.name;
+
+    const titulo = document.createElement('h4');
+    titulo.textContent = juego.name;
+
+    const genero = document.createElement('p');
+    genero.textContent = `Género: ${juego.genres.map(g => g.name).join(', ')}`;
+
+    const precio = document.createElement('p');
+    precio.textContent = `Precio: $299.99`;
+
+    const botonCarrito = document.createElement('button');
+    botonCarrito.textContent = 'Añadir al carrito';
+    botonCarrito.addEventListener('click', () => {
+      agregarAlCarrito(juego);
     });
+
+    cardOfer.appendChild(imagen);
+    cardOfer.appendChild(titulo);
+    cardOfer.appendChild(genero);
+    cardOfer.appendChild(precio);
+    cardOfer.appendChild(botonCarrito);
+
+    ofertasContainer.appendChild(cardOfer);
+  });
 }
 
-function inicializar() {
+async function inicializar() {
   carrito = obtenerCarritoLocalStorage();
-  cargarJuegos();
   renderizarCarrito();
+
+  const juegosLocalStorage = await obtenerJuegosLocalStorage();
+
+  if (juegosLocalStorage.length > 0) {
+    renderizarJuegosAleatorios(juegosLocalStorage);
+  } else {
+    const juegosAleatorios = await obtenerJuegosAleatorios();
+    almacenarJuegosLocalStorage(juegosAleatorios);
+    renderizarJuegosAleatorios(juegosAleatorios);
+  }
+
+  const juegosPopulares = await obtenerJuegosPopulares();
+  renderizarCards(juegosPopulares);
 }
 
-inicializar();
+window.addEventListener('DOMContentLoaded', inicializar);
+
+async function renderizarJuegosPorGenero(genero) {
+  const url = `${baseUrl}/games?key=${apiKey}&genres=${genero}&page_size=${juegosAMostrar}`;
+  const respuesta = await fetch(url);
+  const data = await respuesta.json();
+  const juegos = data.results;
+  renderizarCards(juegos);
+}
+
+async function renderizarJuegosDeTodosLosGeneros() {
+  const generos = ["action", "adventure", "role-playing-games-rpg", "strategy", "sports"];
+  const juegosPorGenero = [];
+
+  for (let i = 0; i < generos.length; i++) {
+    const url = `${baseUrl}/games?key=${apiKey}&genres=${generos[i]}&page_size=5`;
+    const respuesta = await fetch(url);
+    const data = await respuesta.json();
+    const juegos = data.results;
+    juegosPorGenero.push(...juegos);
+  }
+
+  renderizarCards(juegosPorGenero);
+}
+
+function limpiarFiltros() {
+  const cardsContainer = document.querySelector('.cards-container');
+  cardsContainer.innerHTML = '';
+
+  const juegosPopulares = obtenerJuegosPopulares();
+  renderizarCards(juegosPopulares);
+}
+
+
+function inicializarBotonesFiltros() {
+  const filtersContainer = document.createElement('div');
+  filtersContainer.classList.add('filters-btn');
+
+  const generos = ["action", "adventure", "role-playing-games-rpg", "strategy", "sports"];
+
+  generos.forEach(genero => {
+    const botonGenero = document.createElement('button');
+    botonGenero.textContent = genero;
+    botonGenero.addEventListener('click', () => {
+      renderizarJuegosPorGenero(genero);
+    });
+
+    filtersContainer.appendChild(botonGenero);
+  });
+
+  const botonVerTodas = document.createElement('button');
+  botonVerTodas.textContent = 'Ver todas';
+  botonVerTodas.addEventListener('click', () => {
+    renderizarJuegosDeTodosLosGeneros();
+  });
+
+  const botonLimpiarFiltros = document.createElement('button');
+  botonLimpiarFiltros.textContent = 'Limpiar filtros';
+  botonLimpiarFiltros.addEventListener('click', () => {
+    limpiarFiltros();
+  });
+
+  filtersContainer.appendChild(botonVerTodas);
+  filtersContainer.appendChild(botonLimpiarFiltros);
+
+  const cardsContainer = document.querySelector('.cards-container');
+  const parentContainer = cardsContainer.parentNode;
+  parentContainer.insertBefore(filtersContainer, cardsContainer);
+
+  const br = document.createElement('br');
+  parentContainer.insertBefore(br, cardsContainer);
+}
+
+async function inicializar() {
+  carrito = obtenerCarritoLocalStorage();
+  renderizarCarrito();
+
+  const juegosLocalStorage = await obtenerJuegosLocalStorage();
+
+  if (juegosLocalStorage.length > 0) {
+    renderizarJuegosAleatorios(juegosLocalStorage);
+  } else {
+    const juegosAleatorios = await obtenerJuegosAleatorios();
+    almacenarJuegosLocalStorage(juegosAleatorios);
+    renderizarJuegosAleatorios(juegosAleatorios);
+  }
+
+  const juegosPopulares = await obtenerJuegosPopulares();
+  renderizarCards(juegosPopulares);
+
+  inicializarBotonesFiltros();
+}
+
+window.addEventListener('DOMContentLoaded', inicializar);
