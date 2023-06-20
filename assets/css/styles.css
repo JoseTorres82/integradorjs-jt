@@ -461,6 +461,7 @@ body {
     margin-top: 5px;
     margin-bottom: 0;
     text-align: center;
+    font-size: medium;
 }
 
 .cardOfer button:hover {
