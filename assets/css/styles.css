@@ -885,6 +885,10 @@ footer .box2 .logo {
         margin: 0 auto;
         font-size: medium;
     }
+    .news a{
+        display: flex;
+        justify-content: space-around;
+    }
     .slider{
         display: none;
     }
