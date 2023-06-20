@@ -154,10 +154,13 @@ body {
     padding: 10px;
     gap: 10px;
     transition: all .2s;
+    margin-left: 0;
 }
 
 .nav-links a i {
     font-size: 15px;
+    margin: 0 auto;
+    margin-left: 0;
 }
 
 .nav-links a:hover {
@@ -931,14 +934,18 @@ footer .box2 .logo {
     }
 }
 
-@media (max-width:320px){
+@media (min-width:320px){
     *{  margin:0 auto;
         font-size: small;
 
     }    
+    .search {
+        display:none;
+    }
     .news a{
         display: flex;
         justify-content: space-around;
+        margin: 5px;
     }
 
 }
