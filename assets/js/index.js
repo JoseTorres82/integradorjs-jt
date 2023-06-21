@@ -32,7 +32,7 @@ aboutUsContet.appendChild(txtAboutUs).className ='aboutUs-txt';
 
 const heroContent = document.querySelector('.hero-txt-container');
 const txtHero = document.createElement('p');
-txtHero.textContent = "¡Bienvenidos a StarGames, el paraíso de los juegos digitales! Sumérgete en emocionantes aventuras y compite en frenéticas batallas. Descubre los títulos más populares y clásicos. Disfruta de una experiencia de compra excepcional y un soporte al cliente excepcional. ¡Prepárate para horas interminables de diversión y entretenimiento en StarGames, donde los mejores juegos digitales te esperan! ¡Únete a nosotros y descubre el paraíso de los juegos digitales!"
+txtHero.textContent = "¡Bienvenidos a StarGames, el paraíso de los juegos digitales!¡Prepárate para horas interminables de diversión y entretenimiento en StarGames, donde los mejores juegos digitales te esperan! ¡Únete a nosotros y descubre el paraíso de los juegos digitales!"
 heroContent.appendChild(txtHero).className ='hero-main-txt';
 
 /* Slider */
