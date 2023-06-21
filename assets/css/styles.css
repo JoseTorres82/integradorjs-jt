@@ -328,7 +328,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 45px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .search-label {
@@ -836,9 +837,10 @@ footer .footer-container a i {
     background-image: url(/assets/img/logBg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    border-radius: 80px 10px 80px 10px;
+    border-radius: 5px;
     margin-top: 20px;
     margin-bottom: 20px;
+    padding: 30px;
 }
 #form-container h2{
     width: 100%;
@@ -857,7 +859,7 @@ footer .footer-container a i {
     height: 400px;
     background: linear-gradient(to right, rgb(185, 100, 255), rgb(103, 74, 255), rgb(12, 204, 238));
     background-repeat: no-repeat;
-    border-radius: 80px 10px 80px 10px;
+    border-radius:  10px;
     display:flex;
     flex-direction: column;
     justify-content: center;
