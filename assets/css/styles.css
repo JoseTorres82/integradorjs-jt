@@ -52,6 +52,7 @@ body {
     margin: 0 auto;
     width: 100%;
     height: 100%;
+    margin: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -114,6 +115,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: all .2s;
+    margin-right: 0;
 }
 
 .button-menu:hover {
@@ -248,7 +250,42 @@ body {
     color: #000;
     z-index: 10000;
 }
-
+#hero-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-radius: 0px 0px 15px 15px;
+    z-index: 9;
+    position: relative;
+}
+.bkgrnd{
+    margin-top: 0;
+    width: 100%;
+    background-image: url(/assets/img/hero-bkgrnd.webp);
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill;
+    position: relative;
+    z-index: 10;
+    border-radius: 0px 0px 15px 15px;
+}
+.shadow{
+    width: 100%;
+    height: 100%;
+    background-color: #131313;
+/*     background: linear-gradient(to right, rgb(185, 100, 255), rgb(103, 74, 255), rgb(12, 204, 238)); */
+    z-index: 11;
+    border-radius: 0px 0px 15px 15px;
+    position:relative;
+    opacity: 55%;
+}
 /* #scrollarrow {
     text-indent: -9999px;
     width: 42px;
@@ -260,6 +297,28 @@ body {
     background-size: 42px 42px;
     z-index: 2;
 } */
+.hero-txt-container {
+    min-width: 100%;
+    height: 100%;
+    font-size: large;
+    color: #F5F5F5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index:12 ;
+    padding: 20px;
+}
+.hero-txt-container p{
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    z-index: 13;
+    text-transform: uppercase;
+    font-family: 'Roboto',sans-serif;
+    font-size: large;
+}
 .search-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -542,7 +601,7 @@ body {
     justify-content: center;
     align-items: center;
     background-size: cover;
-    z-index: 9991;
+    z-index: 20;
     position: relative;
 }
 
@@ -550,7 +609,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
-    z-index: 9993;
+    z-index: 24;
     font-size: xx-large;
     top: 0;
     color: transparent;
@@ -566,31 +625,34 @@ body {
 }
 
 #aboutUs-txt {
-    width: 100%;
     margin: 0 auto;
-    color: #f5f5f5;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 1.6;
-    letter-spacing: 1px;
-    text-align: center;
+    width: 100%;
+    height: auto;
     padding: 10px;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-
-}
-
-#aboutUs-txt p {
-    margin-top: 10px;
-    text-align: center;
     background: linear-gradient(to right, rgb(185, 100, 255), rgb(103, 74, 255), rgb(12, 204, 238));
     background-repeat: no-repeat;
     background-size: 100%;
+    border-radius: 10px 80px 10px 80px;
+    z-index: 21;
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#aboutUs-txt p {
+    text-align: center;
     font-family: 'Poppins', sans-serif;
-    border-radius: 750px 680px 480px 0px;
     padding: 15px;
     font-size:medium;
-
+    z-index: 22;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-justify:distribute-all-lines;
+    color: #131313;
+    line-height: 1.6;
+    letter-spacing: 1px;
 }
 
 #ofertas .cards-container {
@@ -885,10 +947,7 @@ footer .box2 .logo {
 }
 
 @media (max-width:576px) {
-    * {
-        margin: 0 auto;
-        font-size: medium;
-    }
+
     .news a{
         display: flex;
         justify-content: space-around;
@@ -899,7 +958,7 @@ footer .box2 .logo {
     .slider{
         display: none;
     }
-    #aboutUs-container{
+    /* #aboutUs-container{
         margin: 0 auto;
         margin-bottom: 20px;
     }
@@ -907,7 +966,7 @@ footer .box2 .logo {
         width: 100%;
         margin: 0 auto;
         justify-content: center;
-    }
+    } */
 
     .search-container{
         margin: 0 auto;
@@ -918,13 +977,13 @@ footer .box2 .logo {
     .search-label input {
         width: 100%;
     }
-    #aboutUs-txt p{
+   /*  #aboutUs-txt p{
         margin: 0 auto;
         width: 100%;
         height: auto;
         font-size: medium;
         margin-bottom: 20px;
-    }
+    } */
     footer {
         display: block;
     }
@@ -936,10 +995,10 @@ footer .box2 .logo {
 }
 
 @media (min-width:320px){
-    *{  margin:0 auto;
+    /* *{  margin:0 auto;
         font-size: small;
 
-    }    
+    }     */
     .search {
         display:none;
     }

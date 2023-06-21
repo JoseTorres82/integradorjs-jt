@@ -27,8 +27,13 @@ toggleButton.addEventListener('click', () => {
 
 const aboutUsContet = document.querySelector('#aboutUs-txt');
 const txtAboutUs = document.createElement('p');
-txtAboutUs.textContent = "¡Bienvenidos a StarGames, el paraíso de los juegos digitales! Sumérgete en emocionantes aventuras y compite en frenéticas batallas. Descubre los títulos más populares y clásicos. Disfruta de una experiencia de compra excepcional y un soporte al cliente excepcional. ¡Prepárate para horas interminables de diversión y entretenimiento en StarGames, donde los mejores juegos digitales te esperan! ¡Únete a nosotros y descubre el paraíso de los juegos digitales!"
+txtAboutUs.textContent = "Nosotros en StarGames somos un equipo apasionado de profesionales de la industria de los videojuegos. Nuestra dedicación y experiencia nos han llevado a crear una plataforma que busca brindar la mejor experiencia de juego a todos nuestros usuarios.Nos enorgullece ofrecer una amplia gama de juegos de alta calidad, cuidadosamente seleccionados para satisfacer los gustos y preferencias de jugadores de todas las edades y niveles de habilidad. Desde juegos clásicos que evocan nostalgia hasta las últimas innovaciones en la industria, trabajamos arduamente para mantener nuestro catálogo actualizado y relevante."
 aboutUsContet.appendChild(txtAboutUs).className ='aboutUs-txt';
+
+const heroContent = document.querySelector('.hero-txt-container');
+const txtHero = document.createElement('p');
+txtHero.textContent = "¡Bienvenidos a StarGames, el paraíso de los juegos digitales! Sumérgete en emocionantes aventuras y compite en frenéticas batallas. Descubre los títulos más populares y clásicos. Disfruta de una experiencia de compra excepcional y un soporte al cliente excepcional. ¡Prepárate para horas interminables de diversión y entretenimiento en StarGames, donde los mejores juegos digitales te esperan! ¡Únete a nosotros y descubre el paraíso de los juegos digitales!"
+heroContent.appendChild(txtHero).className ='hero-main-txt';
 
 /* Slider */
 const slider = document.querySelector(".slider");

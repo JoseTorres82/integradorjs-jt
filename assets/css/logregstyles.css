@@ -36,7 +36,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
 }
 
 #header-container .logo h1 {
@@ -81,7 +80,7 @@ header {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
+   /*  padding: 20px; */
     border: none;
 }
 
