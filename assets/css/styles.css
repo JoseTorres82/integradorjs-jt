@@ -76,7 +76,6 @@ body {
     line-height: 1.5;
     letter-spacing: 1px;
     font-weight: 600px;
-    font-size:x-large;
 }
 
 #header-container .logo span {
@@ -162,8 +161,6 @@ body {
 
 .nav-links a i {
     font-size: 15px;
-    margin: 0 auto;
-    margin-left: 0;
 }
 
 .nav-links a:hover {
@@ -179,7 +176,7 @@ body {
 }
 
 #cart-container {
-    width: 100%;
+    width: 80%;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -508,9 +505,57 @@ body {
     height: 60px;
     overflow: hidden;
     object-fit: cover;
+    top: 0;
+}
+.cardOfer {
+    max-width: 200px;
+    max-height: 340px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border: solid 1px #2a2a2a;
+    border-radius: 5px;
+    color: #f5f5f5;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
 }
 
-.cardOfer button {
+.cardOfer h3 {
+    color: rgb(202, 202, 44);
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+}
+
+.cardOfer img {
+    width: 200px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 5px 5px 0px 0px;
+    margin-top: 0;
+
+}
+.cardOferText{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.alinearBoton{
+    width: 100%;
+    bottom: 0;
+    height: 10%;
+
+}
+.cardOfer .alinearBoton button {
     cursor: pointer;
     outline: none !important;
     transition: .4s all;
@@ -518,12 +563,10 @@ body {
     letter-spacing: 1px;
     line-height: normal;
     color: #5f5f5f;
-    padding: 10px 15px;
+    padding: 10px 10px;
     background-color: #202020;
     border-radius: 8px;
     border: none;
-    margin-top: 5px;
-    margin-bottom: 0px;
     text-align: center;
     font-size: medium;
 }
@@ -669,28 +712,6 @@ body {
     justify-content: center;
 }
 
-.cardOfer {
-    max-width: 200px;
-    min-height: 300px;
-    text-align: center;
-    border: solid 1px #2a2a2a;
-    border-radius: 5px;
-    color: #f5f5f5;
-    font-weight: 300;
-    font-family: 'Roboto', sans-serif;
-    margin-top: 5px;
-}
-
-.cardOfer h3 {
-    color: rgb(202, 202, 44);
-}
-
-.cardOfer img {
-    width: 200px;
-    height: 150px;
-    overflow: hidden;
-    border-radius: 5px 5px 0px 0px;
-}
 
 .filters-btn {
     max-width: 1200px;
@@ -823,7 +844,7 @@ footer .footer-container a i {
 
     #aboutUs-container {
         display: block;
-        margin-bottom: 150px;
+        margin-bottom: 50px;
     }
 
     #aboutUs-container p {
@@ -832,15 +853,14 @@ footer .footer-container a i {
 }
 
 .form-container {
-    max-width: 1200px;
     margin: 0 auto;
     background-image: url(/assets/img/logBg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
-    padding: 30px;
+    padding: 40px;
 }
 #form-container h2{
     width: 100%;
@@ -853,9 +873,9 @@ footer .footer-container a i {
 
 }
 #form-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
-    width: 350px;
+    width: 320px;
     height: 400px;
     background: linear-gradient(to right, rgb(185, 100, 255), rgb(103, 74, 255), rgb(12, 204, 238));
     background-repeat: no-repeat;
@@ -864,7 +884,6 @@ footer .footer-container a i {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 #contact-form{
     display: flex;
@@ -955,9 +974,24 @@ footer .box2 .logo {
 }
 @media (max-width:576px) {
 
-    .news a{
+    .news {
         display: flex;
         justify-content: space-around;
+        gap: 25px;
+    }
+    #nav-list {
+        margin: 0 auto;
+        position: fixed;
+        top: 55px;
+        right: 0;
+        width: 100vw;
+        height: 100vh;
+        margin-right: -110%;
+        background-color: #000;
+        z-index: 998;
+        transition: all .3s linear;
+        border-bottom: 1px solid #060120;
+        box-shadow: 0px 3px 5px 1px #060120;
     }
     .search{
         display: none;
@@ -979,6 +1013,7 @@ footer .box2 .logo {
         margin-top: 50px;
         display:flex;
         flex-direction: column;
+        
     }
     .search-label input {
         width: 100%;
@@ -999,6 +1034,13 @@ footer .box2 .logo {
         font-size: small;
 
     }     */
+    .news {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        m: 10px;
+    }
     #aboutUs-container{
         padding :4% ;
         height: fit-content;
@@ -1010,10 +1052,10 @@ footer .box2 .logo {
         align-content: center;
     }
     #form-container {
-        max-width: 320px;
-        margin: 0 auto;
         width: 100%;
-        margin-top: 30px;
+        margin: 0 auto;
+        margin-top: 20px;
+
     }
     #hero-main{
         width: 100%;
@@ -1034,5 +1076,15 @@ footer .box2 .logo {
     }
     .form-container{
         margin-top: 80px;
+    }
+    .form-container {
+        margin: 0 auto;
+        background-image: url(/assets/img/logBg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 5px;
+        margin-top: 20px;
+        margin-bottom: 25px;
+        padding: 52px;
     }
 }
