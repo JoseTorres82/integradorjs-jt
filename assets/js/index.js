@@ -6,7 +6,7 @@ const closeMenu = document.getElementById('button-menu');
 toggleButton.addEventListener('click', () => {
   navWrapper.classList.toggle('show');
   navWrapper.classList.toggle('close');
-
+  
   if (navWrapper.classList.contains('show')) {
     navWrapper.classList.add('close');
     closeMenu.innerHTML = '<i class="fa-solid fa-xmark"></i>Cerrar</button>';
@@ -14,14 +14,26 @@ toggleButton.addEventListener('click', () => {
     navWrapper.classList.remove('close');
     toggleButton.innerHTML = '<i class="fa-solid fa-bars"></i>Menú</button>';
   }
-  navWrapper.addEventListener('click', (e) => {
-    if (e.target.nodeName == 'A') {
-      navWrapper.classList.remove('show');
-      navWrapper.classList.add('close');
-      closeMenu.innerHTML = '<i class="fa-solid fa-bars"></i>Menú</button>';
-    }
-  });
 });
+
+document.addEventListener('click', (e) => {
+  const target = e.target;
+
+  if (!navWrapper.contains(target) && target !== toggleButton) {
+    navWrapper.classList.remove('show');
+    navWrapper.classList.add('close');
+    closeMenu.innerHTML = '<i class="fa-solid fa-bars"></i>Menú</button>';
+  }
+});
+
+navWrapper.addEventListener('click', (e) => {
+  if (e.target.nodeName == 'A') {
+    navWrapper.classList.remove('show');
+    navWrapper.classList.add('close');
+    closeMenu.innerHTML = '<i class="fa-solid fa-bars"></i>Menú</button>';
+  }
+});
+
 
 //------------------------FIN MENU--♪♪♫♫
 
@@ -79,10 +91,10 @@ slider.addEventListener('mouseover', function () {
 document.getElementById('contact-form').addEventListener('submit', function(event) {
   event.preventDefault(); 
 
-  var email = document.getElementById('email-input').value;
-  var name = document.getElementById('name-input').value;
-  var phone = document.getElementById('phone-input').value;
-  var message = document.getElementById('message-input').value;
+  let email = document.getElementById('email-input').value;
+  let name = document.getElementById('name-input').value;
+  let phone = document.getElementById('phone-input').value;
+  let message = document.getElementById('message-input').value;
 
   
   document.getElementById('email-input').value = '';

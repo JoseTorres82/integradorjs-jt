@@ -88,6 +88,7 @@ header {
     width: 100%;
    /*  padding: 20px; */
     border: none;
+    margin-top: 20px;
 }
 
 .formulario {
@@ -153,7 +154,7 @@ input {
 }
 
 .btn-frm{
-    width: 120px;
+    width: 80px;
     height: 40px;
     margin: 5px;
     background: linear-gradient(to right, #43bcff, #9708cc);

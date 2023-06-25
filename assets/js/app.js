@@ -24,8 +24,8 @@ function agregarAlCarrito(juego) {
     carrito.push(juego);
   }
 
-  mostrarModal(`${juego.name} se añadió al carrito`);
   renderizarCarrito();
+  mostrarModal(`${juego.name} se añadió al carrito`);
 }
 
 function renderizarCarrito() {
@@ -121,7 +121,7 @@ function mostrarModal(mensaje) {
 
   setTimeout(() => {
     modal.remove();
-  }, 2000);
+  }, 3000);
 }
 
 async function obtenerJuegosLocalStorage() {
@@ -194,43 +194,6 @@ async function obtenerJuegosPopulares() {
 
   return data.results;
 }
-
-/* async function renderizarCards(juegos) {
-  const ofertasContainer = document.querySelector('.cards-container');
-  ofertasContainer.innerHTML = '';
-
-  juegos.forEach(juego => {
-    const cardOfer = document.createElement('div');
-    cardOfer.classList.add('cardOfer');
-
-    const imagen = document.createElement('img');
-    imagen.src = juego.background_image;
-    imagen.alt = juego.name;
-
-    const titulo = document.createElement('h4');
-    titulo.textContent = juego.name;
-
-    const genero = document.createElement('p');
-    genero.textContent = `Género: ${juego.genres.map(g => g.name).join(', ')}`;
-
-    const precio = document.createElement('p');
-    precio.textContent = `Precio: $299.99`;
-
-    const botonCarrito = document.createElement('button');
-    botonCarrito.textContent = 'Añadir al carrito';
-    botonCarrito.addEventListener('click', () => {
-      agregarAlCarrito(juego);
-    });
-
-    cardOfer.appendChild(imagen);
-    cardOfer.appendChild(titulo);
-    cardOfer.appendChild(genero);
-    cardOfer.appendChild(precio);
-    cardOfer.appendChild(botonCarrito);
-
-    ofertasContainer.appendChild(cardOfer);
-  });
-} */
 async function renderizarCards(juegos) {
   const ofertasContainer = document.querySelector('.cards-container');
   ofertasContainer.innerHTML = '';
@@ -390,3 +353,4 @@ async function inicializar() {
 }
 
 window.addEventListener('DOMContentLoaded', inicializar);
+

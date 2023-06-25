@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
+    scroll-snap-type: mandatory;
     text-decoration: none;
     list-style: none;
     font-family: 'Roboto', sans-serif;
@@ -233,7 +234,6 @@ body {
 }
 
 .modal {
-    position: fixed;
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -245,7 +245,8 @@ body {
     letter-spacing: 1px;
     font-weight: 600px;
     color: #000;
-    z-index: 10000;
+    z-index: 99999;
+    position: relative;
 }
 #hero-main {
     max-width: 1200px;
@@ -316,7 +317,7 @@ body {
     font-family: 'Roboto',sans-serif;
     font-size: large;
 }
-.search-container {
+#search-container {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
@@ -853,6 +854,7 @@ footer .footer-container a i {
 }
 
 .form-container {
+    max-width: 1200px;
     margin: 0 auto;
     background-image: url(/assets/img/logBg.jpg);
     background-repeat: no-repeat;
@@ -1008,7 +1010,7 @@ footer .box2 .logo {
         margin: 0 auto;
     }
     
-    .search-container{
+    #search-container{
         margin: 0 auto;
         margin-top: 50px;
         display:flex;
