@@ -1,8 +1,8 @@
 const apiKey = '27bce82387e946e39fb3dc430f8c590d';
 const baseUrl = 'https://api.rawg.io/api';
 const juegosAMostrar = 4;
-const cantidadMostrada = 5;
-
+const cantidadMostrada = 10;
+const cartBubble = document.querySelector(".cart-bubble");
 let carrito = [];
 
 function almacenarCarritoLocalStorage() {
@@ -23,13 +23,20 @@ function agregarAlCarrito(juego) {
     juego.cantidad = 1;
     carrito.push(juego);
   }
-
+  
+  actualizarContadorCarrito();
   renderizarCarrito();
   mostrarModal(`${juego.name} se añadió al carrito`);
+  
+}
+
+function actualizarContadorCarrito() {
+  const cartBubble = document.querySelector(".cart-bubble");
+  cartBubble.textContent = carrito.length;
 }
 
 function renderizarCarrito() {
-  const cartContainer = document.querySelector('#cart-container');
+  const cartContainer = document.querySelector('.cart-container');
   cartContainer.innerHTML = '';
 
   carrito.forEach(juego => {
@@ -114,10 +121,11 @@ function eliminarJuegoCarrito(juego) {
 }
 
 function mostrarModal(mensaje) {
+  const modalContainer = document.querySelector('.modal-container');
   const modal = document.createElement('div');
   modal.classList.add('modal');
   modal.textContent = mensaje;
-  document.body.appendChild(modal);
+  modalContainer.appendChild(modal);
 
   setTimeout(() => {
     modal.remove();
@@ -353,4 +361,3 @@ async function inicializar() {
 }
 
 window.addEventListener('DOMContentLoaded', inicializar);
-

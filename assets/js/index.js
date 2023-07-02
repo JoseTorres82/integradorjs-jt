@@ -1,6 +1,6 @@
 //Menú de navegacion aca debajo (NO TOQUES NADA! MENU OK!)
 const toggleButton = document.getElementById('button-menu');
-const navWrapper = document.getElementById('nav-list');
+const navWrapper = document.getElementById('navbar-list');
 const closeMenu = document.getElementById('button-menu');
 
 toggleButton.addEventListener('click', () => {
@@ -105,3 +105,4 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   
   alert('¡Formulario enviado con éxito!');
 });
+/* Menu carrito */
