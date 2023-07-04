@@ -1,4 +1,4 @@
-//Menú de navegacion aca debajo (NO TOQUES NADA! MENU OK!)
+// Menú de navegación
 const toggleButton = document.getElementById('button-menu');
 const navWrapper = document.getElementById('navbar-list');
 const closeMenu = document.getElementById('button-menu');
@@ -34,60 +34,58 @@ navWrapper.addEventListener('click', (e) => {
   }
 });
 
-
-//------------------------FIN MENU--♪♪♫♫
-
+// Contenido de "AboutUs"
 const aboutUsContet = document.querySelector('#aboutUs-txt');
 const txtAboutUs = document.createElement('p');
-txtAboutUs.textContent = "Nosotros en StarGames somos un equipo apasionado de profesionales de la industria de los videojuegos. Nuestra dedicación y experiencia nos han llevado a crear una plataforma que busca brindar la mejor experiencia de juego a todos nuestros usuarios.Nos enorgullece ofrecer una amplia gama de juegos de alta calidad, cuidadosamente seleccionados para satisfacer los gustos y preferencias de jugadores de todas las edades y niveles de habilidad. Desde juegos clásicos que evocan nostalgia hasta las últimas innovaciones en la industria, trabajamos arduamente para mantener nuestro catálogo actualizado y relevante."
-aboutUsContet.appendChild(txtAboutUs).className ='aboutUs-txt';
+txtAboutUs.textContent = "Nosotros en StarGames somos un equipo apasionado de profesionales de la industria de los videojuegos. Nuestra dedicación y experiencia nos han llevado a crear una plataforma que busca brindar la mejor experiencia de juego a todos nuestros usuarios. Nos enorgullece ofrecer una amplia gama de juegos de alta calidad, cuidadosamente seleccionados para satisfacer los gustos y preferencias de jugadores de todas las edades y niveles de habilidad. Desde juegos clásicos que evocan nostalgia hasta las últimas innovaciones en la industria, trabajamos arduamente para mantener nuestro catálogo actualizado y relevante.";
+aboutUsContet.appendChild(txtAboutUs).className = 'aboutUs-txt';
 
+// Contenido del Hero
 const heroContent = document.querySelector('.hero-txt-container');
 const txtHero = document.createElement('p');
-txtHero.textContent = "¡Bienvenidos a StarGames, el paraíso de los juegos digitales!¡Prepárate para horas interminables de diversión y entretenimiento en StarGames, donde los mejores juegos digitales te esperan! ¡Únete a nosotros y descubre el paraíso de los juegos digitales!"
-heroContent.appendChild(txtHero).className ='hero-main-txt';
+txtHero.textContent = "¡Bienvenidos a StarGames, el paraíso de los juegos digitales! ¡Prepárate para horas interminables de diversión y entretenimiento en StarGames, donde los mejores juegos digitales te esperan! ¡Únete a nosotros y descubre el paraíso de los juegos digitales!";
+heroContent.appendChild(txtHero).className = 'hero-main-txt';
 
-/* Slider */
+// Slider
 const slider = document.querySelector(".slider");
 const slides = slider.querySelector(".slides");
 const prevBtn = slider.querySelector(".prev");
 const nextBtn = slider.querySelector(".next");
 
-const slideWith = slides.clientWidth;
-console.log(slideWith)
+const slideWidth = slides.clientWidth;
 let slideIndex = 0;
 
 const moveToSlide = () => {
-    slides.style.transform = `translateX(${-slideWith * slideIndex}px)`;
+  slides.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
 };
 
 const nextSlide = () => {
-    if (slideIndex === slides.children.length - 1) {
-        slideIndex = 0;
-    } else {
-        slideIndex++;
-    }
-    moveToSlide();
+  if (slideIndex === slides.children.length - 1) {
+    slideIndex = 0;
+  } else {
+    slideIndex++;
+  }
+  moveToSlide();
 };
+
 nextBtn.addEventListener("click", nextSlide);
 prevBtn.addEventListener("click", () => {
-    console.log(slideIndex, "prev")
-    if (slideIndex === 0) {
-        return false;
-    };
-    slideIndex--;
-    moveToSlide();
+  if (slideIndex === 0) {
+    return false;
+  }
+  slideIndex--;
+  moveToSlide();
 });
+
 const autoPlayInterval = setInterval(() => {
-    nextSlide();
+  nextSlide();
 }, 3500);
 
 slider.addEventListener('mouseover', function () {
-    clearInterval(autoPlayInterval);
-})
+  clearInterval(autoPlayInterval);
+});
 
-/*  */
-/* formulario de contacto */
+// Formulario de contacto
 document.getElementById('contact-form').addEventListener('submit', function(event) {
   event.preventDefault(); 
 
@@ -96,13 +94,12 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   let phone = document.getElementById('phone-input').value;
   let message = document.getElementById('message-input').value;
 
-  
   document.getElementById('email-input').value = '';
   document.getElementById('name-input').value = '';
   document.getElementById('phone-input').value = '';
   document.getElementById('message-input').value = '';
 
-  
   alert('¡Formulario enviado con éxito!');
 });
-/* Menu carrito */
+
+
