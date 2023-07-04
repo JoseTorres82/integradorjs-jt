@@ -320,7 +320,11 @@ function comprar() {
   if (carrito.length > 0) {
     if (confirm("¿Deseas completar tu compra?")) {
       alert("Gracias por tu compra!");
-      localStorage.removeItem('carrito');
+      carrito = [];
+      cartContainer.innerHTML = '';
+      actualizarTotal(); 
+      almacenarCarritoLocalStorage(); 
+      localStorage.removeItem('carrito'); 
       location.reload();
     }
   } else {
