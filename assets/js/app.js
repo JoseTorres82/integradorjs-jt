@@ -333,13 +333,17 @@ function vaciarCarrito() {
     if (confirm("¿Deseas vaciar tu carrito?")) {
       alert("Sigue navegando en StarGames!");
       carrito = [];
-      localStorage.removeItem('carrito');
-      location.reload();
+      cartContainer.innerHTML = '';
+      actualizarTotal();
+      almacenarCarritoLocalStorage(); 
+      localStorage.removeItem('carrito'); 
     }
   } else {
     alert("Tu carrito se encuentra vacío. Sigue explorando.");
   }
 }
+
+
 
 window.addEventListener('DOMContentLoaded', async () => {
   carrito = obtenerCarritoLocalStorage();
