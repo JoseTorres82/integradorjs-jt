@@ -41,7 +41,7 @@ function agregarAlCarrito(juego) {
 }
 
 function renderizarJuegos(juegos) {
-  const cardOffer = document.querySelector(".cardOffer");
+  const cardOffer = document.querySelector(".cardOfer");
   const minCard = document.querySelector(".minCard");
 
   cardOffer.innerHTML = '';
@@ -68,6 +68,7 @@ function renderizarJuegos(juegos) {
     }
   });
 }
+
 
 function actualizarContadorCarrito() {
   cartBubble.textContent = carrito.length;
@@ -174,6 +175,7 @@ function actualizarTotal() {
 }
 
 function mostrarModal(mensaje) {
+  
   const modalContainer = document.querySelector('.modal-container');
   const modal = document.createElement('div');
   modal.classList.add('modal');
@@ -310,11 +312,14 @@ function inicializarEventos() {
   btnDelete.addEventListener('click', vaciarCarrito);
   /* document.addEventListener('click', clickOutsideCartContainer); */
 }
-/* function clickOutsideCartContainer(event) {
-  if (!contenedorCart.contains(event.target) && !cartIcon.contains(event.target)) {
+function clickOutsideCartContainer(event) {
+  if (!cartContainer.contains(event.target) && !cartIcon.contains(event.target)) {
     toggleCart();
   }
-} */
+  else return;
+
+} 
+
 
 function comprar() {
   if (carrito.length > 0) {
@@ -347,8 +352,6 @@ function vaciarCarrito() {
   }
 }
 
-
-
 window.addEventListener('DOMContentLoaded', async () => {
   carrito = obtenerCarritoLocalStorage();
   actualizarContadorCarrito();
@@ -358,8 +361,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   const juegosPopulares = await obtenerJuegosPopulares();
   renderizarCards(juegosPopulares);
-
+  
   inicializarEventos();
   
 });
-

@@ -124,6 +124,8 @@ body {
     max-width: 490px;
     min-width: 375px;
     margin: 0 auto;
+    max-height: 450px;
+    overflow-y: scroll;
 }
 .cart-container-show.cart-item h4 {
     width: 35px;
@@ -233,7 +235,7 @@ body {
 
 
 /*OCULTAR BARRA DE SCROLL DEL CARRITO*/
-.cart::-webkit-scrollbar {
+.cart-container::-webkit-scrollbar {
     display: none;
 }
 
@@ -358,7 +360,7 @@ body {
     height: 80px;
     position: fixed;
     bottom: 0;
-    z-index: 9999;
+    z-index: 99;
     display: flex;
     justify-content: center;
     align-items: center;
