@@ -308,11 +308,11 @@ body {
 }
 
 .cart-item .btn-delItm {
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     border-radius: 50px;
     background-image: url(/assets/img/delete.png);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
@@ -857,6 +857,7 @@ body {
     transition: .2s;
     text-transform: uppercase;
     flex-wrap: wrap;
+    cursor:pointer;
 }
 
 .filters-btn button:hover {

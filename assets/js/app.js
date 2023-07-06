@@ -304,7 +304,81 @@ async function renderizarCards(juegos) {
     ofertasContainer.appendChild(cardOfer);
   });
 }
+/* Filter-btns */
+window.addEventListener('DOMContentLoaded', inicializar);
+async function renderizarJuegosPorGenero(genero) {
+  const url = `${baseUrl}/games?key=${apiKey}&genres=${genero}&page_size=${juegosAMostrar}`;
+  const respuesta = await fetch(url);
+  const data = await respuesta.json();
+  const juegos = data.results;
+  renderizarCards(juegos);
+}
+async function renderizarJuegosDeTodosLosGeneros() {
+  const generos = ["action", "adventure", "role-playing-games-rpg", "strategy", "sports"];
+  const juegosPorGenero = [];
+  for (let i = 0; i < generos.length; i++) {
+    const url = `${baseUrl}/games?key=${apiKey}&genres=${generos[i]}&page_size=5`;
+    const respuesta = await fetch(url);
+    const data = await respuesta.json();
+    const juegos = data.results;
+    juegosPorGenero.push(...juegos);
+  }
+  renderizarCards(juegosPorGenero);
+}
+function limpiarFiltros() {
+  const cardsContainer = document.querySelector('.cards-container');
+  cardsContainer.innerHTML = '';
+  const juegosPopulares = obtenerJuegosPopulares();
+  renderizarCards(juegosPopulares);
+}
+function inicializarBotonesFiltros() {
+  const filtersContainer = document.createElement('div');
+  filtersContainer.classList.add('filters-btn');
+  const generos = ["action", "adventure", "role-playing-games-rpg", "strategy", "sports"];
+  generos.forEach(genero => {
+    const botonGenero = document.createElement('button');
+    botonGenero.textContent = genero;
+    botonGenero.addEventListener('click', () => {
+      renderizarJuegosPorGenero(genero);
+    });
+    filtersContainer.appendChild(botonGenero);
+  });
+  const botonVerTodas = document.createElement('button');
+  botonVerTodas.textContent = 'Ver todas';
+  botonVerTodas.addEventListener('click', () => {
+    renderizarJuegosDeTodosLosGeneros();
+  });
+  const botonLimpiarFiltros = document.createElement('button');
+  botonLimpiarFiltros.textContent = 'Limpiar filtros';
+  botonLimpiarFiltros.addEventListener('click', () => {
+    limpiarFiltros();
+  });
+  filtersContainer.appendChild(botonVerTodas);
+  filtersContainer.appendChild(botonLimpiarFiltros);
+  const cardsContainer = document.querySelector('.cards-container');
+  const parentContainer = cardsContainer.parentNode;
+  parentContainer.insertBefore(filtersContainer, cardsContainer);
+  const br = document.createElement('br');
+  parentContainer.insertBefore(br, cardsContainer);
+}
+async function inicializar() {
+  carrito = obtenerCarritoLocalStorage();
+  renderizarCarrito();
+  const juegosLocalStorage = await obtenerJuegosLocalStorage();
+  if (juegosLocalStorage.length > 0) {
+    renderizarJuegosAleatorios(juegosLocalStorage);
+  } else {
+    const juegosAleatorios = await obtenerJuegosAleatorios();
+    almacenarJuegosLocalStorage(juegosAleatorios);
+    renderizarJuegosAleatorios(juegosAleatorios);
+  }
+  const juegosPopulares = await obtenerJuegosPopulares();
+  renderizarCards(juegosPopulares);
+  inicializarBotonesFiltros(); 
+}
+inicializar();
 
+/* fin Filter-btns */
 
 function inicializarEventos() {
   cartIcon.addEventListener('click', toggleCart);
@@ -365,3 +439,4 @@ window.addEventListener('DOMContentLoaded', async () => {
   inicializarEventos();
   
 });
+
