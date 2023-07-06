@@ -113,7 +113,7 @@ function renderizarCarrito() {
       eliminarJuegoCarrito(juego);
     });
 
-    const precio = document.createElement('h4');
+    const precio = document.createElement('h3');
     precio.textContent = '$299.99';
 
     cantidadContainer.appendChild(decrementButton);
@@ -376,7 +376,7 @@ async function inicializar() {
   renderizarCards(juegosPopulares);
   inicializarBotonesFiltros(); 
 }
-inicializar();
+/* inicializar(); */
 
 /* fin Filter-btns */
 

@@ -85,6 +85,16 @@ slider.addEventListener('mouseover', function () {
   clearInterval(autoPlayInterval);
 });
 
+//Contenido del Banner
+const bannerContainer = document.querySelector('#banner');
+const h1=document.createElement('h1');
+h1.innerText='Descubre las ventajas y beneficios que StarGames tiene para ofrecerte';
+const p=document.createElement('p') ;
+p.innerHTML="Se parte de nuestro mundo, seremos parte del tuyo";
+bannerContainer.appendChild(h1);
+bannerContainer.appendChild(p);
+
+
 // Formulario de contacto
 document.getElementById('contact-form').addEventListener('submit', function(event) {
   event.preventDefault(); 
