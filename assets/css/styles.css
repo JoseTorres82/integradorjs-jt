@@ -104,6 +104,7 @@ body {
     /* display: none; */
 }
 .cart-show {
+    width: 50vw;
     height: 100vh;
     position: absolute;
     margin: 0 auto;
@@ -134,9 +135,16 @@ body {
     .btn-buy, .btn-delete{
         margin-left: 50px;
     }
+    .cart-item{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .cart-show{
+        padding: 15px;
+    }
 }
 .cart-container-show {
-    max-width: 490px;
+    max-width: 600px;
     min-width: 320px;
     margin: 0 auto;
     max-height: 450px;
@@ -265,10 +273,11 @@ body {
     gap: 20px;
     background-color: #0d0d0d;
     padding: 15px;
-    margin: 10px;
+    /* margin: 10px; */
     border: 1px solid #141414;
     border-radius: 10px;
 }
+
 
 .cart-item img {
     height: 45px;
