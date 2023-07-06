@@ -1297,7 +1297,9 @@ footer .box2 .logo {
         justify-content: space-around;
         gap: 25px;
     }
-
+    .cart-item img {
+        display:none;
+    }
     #navbar-list {
         margin: 0 auto;
         position: fixed;
@@ -1358,6 +1360,8 @@ footer .box2 .logo {
         font-size: small;
 
     }     */
+
+    
     .news {
         width: 100%;
         display: flex;
