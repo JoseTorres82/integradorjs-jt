@@ -123,9 +123,9 @@ body {
 }
 @media (max-width :768px) {
     .cart-show {
-        left:-35px!important ;
+        width: 90vw;
         bottom:unset !important;
-        z-index: 999;
+        z-index: 990;
         height: 100vh;
         place-content: center;    
     }
