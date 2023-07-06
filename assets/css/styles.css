@@ -1297,6 +1297,9 @@ footer .box2 .logo {
         justify-content: space-around;
         gap: 25px;
     }
+    .cart-item {
+        margin-bottom: 5px;
+    }
     .cart-item img {
         display:none;
     }
