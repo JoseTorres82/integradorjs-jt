@@ -1408,13 +1408,28 @@ footer .box2 .logo {
     }
 }
 
-@media (max-width:320px) {
+@media (max-width:375px) {
 
     /* *{  margin:0 auto;
         font-size: small;
 
     }     */
-
+    .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    background-color: #313131;
+    padding: 15px;
+    margin: 0;
+    border: 1px solid #141414;
+    border-radius: 10px;
+    width: 90vw;
+    height: 100px;
+    place-content: center;
+    place-items: center;
+    margin-bottom: 5px;
+}
     
     .news {
         width: 100%;
