@@ -1129,6 +1129,7 @@ footer .footer-container a i {
         display: block;
     }
     .cart-show {
+        margin:0 auto;
         width: 80%;
     }
 
