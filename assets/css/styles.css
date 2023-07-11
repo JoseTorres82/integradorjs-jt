@@ -1345,6 +1345,7 @@ footer .box2 .logo {
     gap: 5px;
     background-color: #313131;
     padding: 15px;
+    margin:0;
     margin-bottom: 5px;
     border: 1px solid #141414;
     border-radius: 10px;
