@@ -1343,9 +1343,18 @@ footer .box2 .logo {
         justify-content: space-around;
         gap: 25px;
     }
-    .cart-item {
-        margin-bottom: 5px;
-    }
+   .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    background-color: #313131;
+    padding: 4px;
+    margin: 1px;
+    border: 1px solid #141414;
+    border-radius: 10px;
+    width: 100%;
+}
     .cart-item img {
         display:none;
     }
