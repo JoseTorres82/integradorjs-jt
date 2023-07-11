@@ -104,7 +104,7 @@ body {
     /* display: none; */
 }
 .cart-show {
-    width: 50vw;
+    width: fit-content;
     height: 100vh;
     position: absolute;
     margin: 0 auto;
@@ -114,7 +114,7 @@ body {
     right: -35px;
     line-height: 1.6;
     letter-spacing: 1px;
-    padding: 35px 15px;
+    padding: 35px 53px;
     justify-content: center;
     align-items: unset;
     background: #000;
@@ -297,12 +297,24 @@ body {
     justify-content: space-between;
     gap: 5px;
     background-color: #313131;
+    padding: 22px;
+    margin-bottom: 10px;
+    border: 1px solid #141414;
+    border-radius: 10px;
+    width: 100%;
+}
+/*.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+    background-color: #313131;
     padding: 15px;
     margin: 10px;
     border: 1px solid #141414;
     border-radius: 10px;
     width: 100%;
-}
+}*/
 /*.cart-item {
     display: flex;
     align-items: center;
