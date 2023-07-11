@@ -122,12 +122,11 @@ body {
     border-top: none;
     transition: all ease-in-out .5s;
 }
-@media (max-width :976px) {
+/*@media (max-width :976px) {
 .cart-show {
-       
-        width: 80%;
+     width: 80%;
     }
-}
+}*/
 @media (max-width :768px) {
     .cart-show {
         width: 100%;
