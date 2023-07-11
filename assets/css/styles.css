@@ -122,6 +122,12 @@ body {
     border-top: none;
     transition: all ease-in-out .5s;
 }
+@media (max-width :976px) {
+.cart-show {
+       
+        width: 80%;
+    }
+}
 @media (max-width :768px) {
     .cart-show {
         width: 100%;
@@ -1127,10 +1133,6 @@ footer .footer-container a i {
 
     #hero-container {
         display: block;
-    }
-    .cart-show {
-        margin:0 auto;
-        width: 80%;
     }
 
     .slides img {
