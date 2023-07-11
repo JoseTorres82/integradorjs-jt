@@ -1415,6 +1415,10 @@ footer .box2 .logo {
         font-size: small;
 
     }     */
+    .cart-container-show{
+        padding:0;
+    }
+    
     .cart-item {
     display: flex;
     align-items: center;
