@@ -104,6 +104,26 @@ body {
     /* display: none; */
 }
 .cart-show {
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    margin: 0 auto;
+    display: block;
+    color: rgb(245, 245, 245);
+    top: 60px;
+    right: -35px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    padding: 35px 15px;
+    justify-content: center;
+    align-items: unset;
+    background: #000;
+    border: solid 1px #280228;
+    border-top: none;
+    transition: all ease-in-out .5s;
+}
+@media (max-width :976px) {
+.cart-show {
     width: 75vw;
     height: 100vh;
     position: absolute;
@@ -122,11 +142,7 @@ body {
     border-top: none;
     transition: all ease-in-out .5s;
 }
-/*@media (max-width :976px) {
-.cart-show {
-     width: 80%;
-    }
-}*/
+}
 @media (max-width :768px) {
     .cart-show {
         width: 100%;
