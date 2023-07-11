@@ -104,7 +104,7 @@ body {
     /* display: none; */
 }
 .cart-show {
-    width: 80vw;
+    width: 50vw;
     height: 100vh;
     position: absolute;
     margin: 0 auto;
@@ -1127,6 +1127,9 @@ footer .footer-container a i {
 
     #hero-container {
         display: block;
+    }
+    .cart-show {
+        width: 80%;
     }
 
     .slides img {
